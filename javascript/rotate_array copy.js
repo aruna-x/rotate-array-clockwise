@@ -1,6 +1,13 @@
 function rotateArray(arr, k) {
-  const end = arr.length-1;
-  return k===0 ? arr : rotateArray([...arr.slice(end),...arr.slice(0,end)], k-1);
+  // recursive solution, but is overengineering...
+  // const end = arr.length-1;
+  // return k===0 ? arr : rotateArray([...arr.slice(end),...arr.slice(0,end)], k-1);
+
+  // O(n) solution
+  const pop = arr.slice(arr.length - k);
+  const rest = arr.slice(0,arr.length - k);
+  return [...pop, ...rest];
+
 }
 
 if (require.main === module) {
